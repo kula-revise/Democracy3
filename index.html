@@ -32,7 +32,7 @@
     --sans: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --serif: Georgia, 'Times New Roman', serif;
   }
-  /* Bright light inversion. Same identity, readable on a cheap screen outdoors. */
+  /* Bright light inversion, kept but not exposed. Add class "bright" to body to switch. */
   body.bright {
     --paper: #F1EEE7;
     --sheet: #FAF8F3;
@@ -57,11 +57,6 @@
     --btn-hover: #96410F;
     --start-hover: #0B182B;
   }
-  .themebar { display: flex; justify-content: flex-end; margin-bottom: 0.9rem; }
-  .themebtn { background: transparent; border: 1px solid var(--hair); color: var(--ink-soft);
-    font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
-    font-weight: 600; padding: 0.42rem 0.75rem; cursor: pointer; }
-  .themebtn:hover { color: var(--ink); border-color: var(--ink-soft); }
   .flourish .rule-ink { stroke: var(--ink); }
   .flourish .rule-accent { stroke: var(--flame); }
   .flourish .dot { fill: var(--flame); }
@@ -112,8 +107,8 @@
 
   /* sources set as typed minutes with a clause marker in the left margin */
   .source { background: var(--white); border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); padding: 1.15rem 1.2rem 1.2rem 2.9rem; margin: 1.1rem 0; position: relative; }
-  .source .clause { position: absolute; left: 0.85rem; top: 1.15rem; font-family: var(--sans); font-size: 0.74rem; font-weight: 600; color: var(--flame); letter-spacing: 0.02em; }
-  .source-attr { font-family: var(--sans); font-size: 0.76rem; color: var(--ink-soft); margin-bottom: 0.7rem; line-height: 1.55; }
+  .source .clause { position: absolute; left: 0.85rem; top: 1.15rem;  font-size: 0.74rem; font-weight: 600; color: var(--flame); letter-spacing: 0.02em; }
+  .source-attr {  font-size: 0.76rem; color: var(--ink-soft); margin-bottom: 0.7rem; line-height: 1.55; }
   .source-body { font-size: 0.97rem; line-height: 1.75; }
   .source-body p { margin-bottom: 0.7rem; }
   .source-body p:last-child { margin-bottom: 0; }
@@ -126,13 +121,13 @@
   .evtag.ground { background: var(--chipB-bg); color: var(--chipB-fg); }
   .evtag.exit { background: var(--ev3-bg); color: var(--ev3-fg); }
 
-  .imgslot { margin: 1rem 0 0.2rem; padding: 1.4rem 1rem; border: 1px dashed var(--hair); text-align: center; font-family: var(--sans); font-size: 0.79rem; color: var(--ink-soft); background: var(--slot-bg); }
+  .imgslot { margin: 1rem 0 0.2rem; padding: 1.4rem 1rem; border: 1px dashed var(--hair); text-align: center;  font-size: 0.79rem; color: var(--ink-soft); background: var(--slot-bg); }
   .figure { margin: 1rem 0 0.3rem; }
   .figure img { display: block; height: auto; border: 1px solid var(--hair); margin: 0 auto; }
   .figure.wide img { width: 100%; max-width: 460px; }
   .figure.portrait img { width: 100%; max-width: 320px; }
   .figure svg { display: block; width: 100%; height: auto; }
-  .figure figcaption { font-family: var(--sans); font-size: 0.76rem; color: var(--ink-soft); margin-top: 0.5rem; line-height: 1.55; text-align: center; }
+  .figure figcaption {  font-size: 0.76rem; color: var(--ink-soft); margin-top: 0.5rem; line-height: 1.55; text-align: center; }
 
   .q-text { font-size: 1.14rem; line-height: 1.5; margin-bottom: 1.15rem; }
   .options { display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 1.15rem; }
@@ -143,7 +138,7 @@
   .option.correct { background: var(--ok-bg); border-color: var(--leaf); border-width: 2px; padding: 0.89rem 0.99rem; }
   .option.wrong { background: var(--bad-bg); border-color: var(--bad-border); border-width: 2px; padding: 0.89rem 0.99rem; }
   .option.dimmed { opacity: 0.5; }
-  .opt-letter { font-family: var(--sans); font-weight: 600; color: var(--flame); min-width: 1.1rem; }
+  .opt-letter {  font-weight: 600; color: var(--flame); min-width: 1.1rem; }
   .opt-text { flex: 1; }
   .opt-mark { font-weight: bold; font-size: 1.05rem; }
   .explanation { background: var(--white); border-top: 1px solid var(--hair); border-left: 3px solid var(--flame); padding: 1.05rem 1.15rem; margin-bottom: 0.3rem; }
@@ -166,9 +161,13 @@
   .btn-start .st { font-size: 1.08rem; font-weight: 600; }
   .btn-start .sa { font-size: 1.25rem; color: var(--flame); }
 
+  .btn-skip { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 0.6rem; padding: 0.85rem 1.35rem; background: transparent; border: 1px solid var(--hair); color: var(--ink-soft); cursor: pointer; font-family: var(--sans); text-align: left; transition: all 0.2s; }
+  .btn-skip:hover { color: var(--ink); border-color: var(--leaf); }
+  .btn-skip .sk-t { font-size: 0.92rem; }
+  .btn-skip .sk-a { font-size: 1.1rem; color: var(--leaf); }
   .score-row { display: grid; grid-template-columns: repeat(auto-fit,minmax(130px,1fr)); gap: 0.9rem; margin-bottom: 1.3rem; }
   .score-block { background: var(--sheet); border-top: 2px solid var(--ink); padding: 1.25rem 0.8rem; text-align: center; }
-  .score-num { font-family: var(--sans); font-size: 2.4rem; font-weight: 600; color: var(--ink); line-height: 1; }
+  .score-num { font-size: 2.4rem; font-weight: 700; color: var(--ink); line-height: 1; }
   .score-num.red { color: var(--flame); }
   .score-den { font-size: 1.05rem; color: var(--ink-soft); font-weight: 400; }
   .score-label { font-family: var(--sans); font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); margin-top: 0.5rem; font-weight: 600; }
@@ -176,10 +175,10 @@
   .breakdown { background: var(--sheet); border-top: 2px solid var(--ink); padding: 1.25rem; margin-bottom: 1.3rem; }
   .breakdown-label { font-family: var(--sans); font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--leaf); font-weight: 600; margin-bottom: 1rem; text-align: center; }
   .bd-row { display: grid; grid-template-columns: 1fr 110px 46px; gap: 0.7rem; align-items: center; margin-bottom: 0.7rem; font-size: 0.86rem; }
-  .bd-name { font-family: var(--sans); font-size: 0.84rem; }
+  .bd-name { font-size: 0.92rem; }
   .bd-bar { height: 8px; background: var(--rail); overflow: hidden; }
   .bd-fill { height: 100%; background: var(--leaf); transition: width 0.4s; }
-  .bd-score { color: var(--ink-soft); text-align: right; font-weight: 600; font-family: var(--sans); }
+  .bd-score { color: var(--ink-soft); text-align: right; font-weight: 700; }
 
   .essaypanel { background: var(--tint); border-top: 1px solid var(--tint-rule); padding: 1.15rem 1.2rem; margin-top: 1.1rem; }
   .essaypanel-label { font-family: var(--sans); font-size: 0.64rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--leaf); font-weight: 600; margin-bottom: 0.7rem; display: flex; align-items: center; gap: 0.5rem; }
@@ -188,21 +187,122 @@
   .essaypanel p:first-of-type { text-indent: 0; }
   .essaypanel p:last-child { margin-bottom: 0; }
   .finalessay { background: var(--white); border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); padding: 1.5rem 1.4rem; margin: 1.1rem 0; }
-  .finalessay .fq { font-family: var(--sans); font-weight: 600; color: var(--flame); font-size: 0.97rem; margin-bottom: 1rem; line-height: 1.5; padding-bottom: 0.9rem; border-bottom: 1px solid var(--hair); }
+  .finalessay .fq {  font-weight: 600; color: var(--flame); font-size: 0.97rem; margin-bottom: 1rem; line-height: 1.5; padding-bottom: 0.9rem; border-bottom: 1px solid var(--hair); }
   .finalessay p { font-size: 0.96rem; line-height: 1.78; margin-bottom: 0.9rem; text-indent: 1.2rem; }
   .finalessay p:first-of-type { text-indent: 0; }
   .finalessay p:last-child { margin-bottom: 0; }
   .qbox { background: var(--white); border-top: 1px solid var(--hair); border-left: 3px solid var(--flame); padding: 1.05rem 1.2rem; margin: 1.3rem 0 1.5rem; }
   .qbox .qlabel { font-family: var(--sans); font-size: 0.64rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--flame); font-weight: 600; margin-bottom: 0.5rem; }
   .qbox .qtext { font-size: 1.05rem; line-height: 1.55; }
+  .terms { margin-top: 1.3rem; padding-top: 1rem; border-top: 1px solid var(--hair); }
+  .terms-label { font-family: var(--sans); font-size: 0.64rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--leaf); font-weight: 600; margin-bottom: 0.7rem; }
+  .term-row { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+  .term-btn { font-family: var(--sans); font-size: 0.84rem; padding: 0.42rem 0.75rem; background: transparent; border: 1px solid var(--hair); color: var(--ink); cursor: pointer; line-height: 1.3; }
+  .term-btn:hover { border-color: var(--leaf); }
+  .term-btn.open { background: var(--ok-bg); border-color: var(--leaf); }
+  .term-btn .plus { color: var(--leaf); font-family: var(--sans); font-weight: 600; margin-left: 0.4rem; }
+  .term-def { display: none; margin-top: 0.8rem; padding: 0.9rem 1rem; background: var(--white); border-top: 1px solid var(--hair); border-left: 3px solid var(--leaf); font-size: 0.92rem; line-height: 1.7; }
+  .term-def.open { display: block; }
+  .term-def strong {  font-size: 0.86rem; display: block; margin-bottom: 0.3rem; color: var(--leaf); }
+  .memory { background: var(--tint); border-top: 1px solid var(--tint-rule); padding: 1rem 1.15rem; margin: 1.1rem 0; }
+  .memory-label { font-family: var(--sans); font-size: 0.64rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--leaf); font-weight: 600; margin-bottom: 0.5rem; }
+  .memory-label.memory-toggle { display: flex; align-items: center; justify-content: space-between; gap: 1rem; cursor: pointer; margin-bottom: 0; }
+  .memory-label.memory-toggle:hover { color: var(--ink); }
+  .memory-label .mplus { font-size: 0.95rem; line-height: 1; }
+  .memory.open .memory-label.memory-toggle { margin-bottom: 0.7rem; }
+  .memory p { font-size: 0.95rem; line-height: 1.7; margin-bottom: 0.6rem; }
+  .memory p:last-child { margin-bottom: 0; }
+  .facts { margin: 1rem 0 0.4rem; padding-left: 1.15rem; }
+  .facts li { font-size: 0.97rem; line-height: 1.7; margin-bottom: 0.5rem; }
+  .key { color: var(--leaf); font-weight: 700; }
+  .card p strong, .card li strong, .memory strong, .recap strong, .source-body strong, .scenario strong { color: var(--leaf); font-weight: 700; }
+  .recap { background: var(--sheet); border-top: 2px solid var(--leaf); padding: 1.35rem 1.4rem 1.5rem; }
+  .recap h2 { font-family: var(--sans); font-size: 1.28rem; font-weight: 600; margin-bottom: 0.9rem; }
+  .recap ul { margin: 0; padding-left: 1.15rem; }
+  .recap li { font-size: 0.97rem; line-height: 1.75; margin-bottom: 0.55rem; }
+  .recap li:last-child { margin-bottom: 0; }
+  .cover { min-height: 82vh; display: flex; flex-direction: column; justify-content: center; text-align: center; padding: 1rem 0 2rem; }
+  .cover-eyebrow { font-family: var(--sans); font-size: 0.66rem; letter-spacing: 0.34em; text-transform: uppercase; color: var(--flame); font-weight: 600; margin-bottom: 1.4rem; }
+  .cover-title { font-family: var(--sans); font-size: clamp(2.4rem, 9vw, 4rem); font-weight: 600; line-height: 1.04; letter-spacing: -0.02em; color: var(--ink); }
+  .cover .flourish { margin: 1.5rem auto 1.4rem; }
+  .cover-line { font-family: var(--serif); font-style: italic; font-size: clamp(1.05rem, 3vw, 1.4rem); color: var(--ink-soft); line-height: 1.6; max-width: 32rem; margin: 0 auto; }
+  .cover-sub { font-family: var(--sans); font-size: 0.76rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); margin-top: 1.6rem; }
+  .cover-actions { margin-top: 2.2rem; display: flex; flex-direction: column; align-items: center; gap: 0.7rem; }
+  .btn-begin { padding: 1rem 3rem; font-size: 1.05rem; }
+  .cover .btn-skip { width: auto; justify-content: center; }
+  .story { padding-top: 0.6rem; }
+  .story-marker { text-align: center; margin-bottom: 0.4rem; }
+  .story-num {  font-size: clamp(2.4rem, 8vw, 3.6rem); font-weight: 700; color: var(--flame); line-height: 1; letter-spacing: -0.02em; }
+  .story-unit { font-family: var(--sans); font-size: 0.64rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--ink-soft); margin-top: 0.35rem; }
+  .story-rule { height: 1px; background: var(--hair); margin: 1.2rem 0 1.6rem; }
+  .story-line { font-size: 1.12rem; line-height: 1.85; color: var(--ink); opacity: 0; transform: translateY(6px); transition: opacity 0.5s ease, transform 0.5s ease; margin-bottom: 0.9rem; }
+  .story-line.vis { opacity: 1; transform: translateY(0); }
+  .story-line.last { color: var(--leaf); font-style: italic; }
+  .modal-back { position: fixed; inset: 0; background: rgba(8,16,28,0.72); display: flex; align-items: center; justify-content: center; padding: 1.2rem; z-index: 50; }
+  .modal { background: var(--sheet); border-top: 3px solid var(--flame); max-width: 24rem; width: 100%; padding: 1.6rem 1.5rem 1.5rem; text-align: center; }
+  .modal-label { font-family: var(--sans); font-size: 0.64rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--leaf); font-weight: 600; margin-bottom: 0.7rem; }
+  .modal h3 { font-family: var(--sans); font-size: 1.2rem; font-weight: 600; margin-bottom: 0.7rem; }
+  .modal p { font-size: 1rem; line-height: 1.7; color: var(--ink); margin-bottom: 1.3rem; }
+  /* --- ordering and sorting --- */
+  .ord-strip { display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 0.9rem; }
+  .ord-slot { display: flex; align-items: center; gap: 0.7rem; width: 100%; text-align: left; padding: 0.75rem 0.9rem; background: var(--paper); border: 1px solid var(--hair); font-size: 0.94rem; color: var(--ink); font-family: inherit; cursor: pointer; -webkit-user-select: none; user-select: none; }
+  .ord-slot .ord-txt { flex: 1; }
+  .ord-slot .ord-x { color: var(--ink-soft); font-size: 0.85rem; }
+  .ord-slot:disabled { cursor: default; }
+  .ord-slot.filled { border-style: solid; background: var(--white); }
+  .ord-slot.right { border-color: var(--leaf); background: var(--ok-bg); }
+  .ord-slot.wrong { border-color: var(--bad-border); background: var(--bad-bg); }
+  .ord-rank {  font-weight: 700; color: var(--flame); min-width: 1.2rem; }
+  .ord-pool { display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 1rem; }
+  .ord-chip { text-align: left; -webkit-user-select: none; user-select: none; padding: 0.8rem 0.95rem; background: var(--paper); border: 1px solid var(--hair); color: var(--ink); font-family: inherit; font-size: 0.94rem; line-height: 1.5; cursor: pointer; }
+  .ord-chip:hover:not(:disabled) { border-color: var(--leaf); background: var(--white); }
+  .ord-chip:disabled { opacity: 0.3; cursor: default; }
+  .ord-actions { display: flex; gap: 0.6rem; margin-bottom: 0.4rem; flex-wrap: wrap; }
+  .btn-small { font-family: var(--sans); font-size: 0.82rem; padding: 0.55rem 1rem; background: transparent; border: 1px solid var(--hair); color: var(--ink); cursor: pointer; }
+  .btn-small:hover:not(:disabled) { border-color: var(--leaf); }
+  .btn-small:disabled { opacity: 0.35; cursor: not-allowed; }
+  .sort-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; margin-bottom: 1rem; }
+  .sort-col { background: var(--sheet); border-top: 2px solid var(--hair); padding: 0.8rem 0.7rem; min-height: 5rem; }
+  .sort-col h4 { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--leaf); margin-bottom: 0.6rem; }
+  .sort-tag { display: block; width: 100%; text-align: left; font-size: 0.86rem; line-height: 1.45; padding: 0.5rem 0.6rem; margin-bottom: 0.4rem; background: var(--white); border: 1px solid var(--hair); color: var(--ink); }
+  .sort-tag.right { border-color: var(--leaf); background: var(--ok-bg); }
+  .sort-tag.wrong { border-color: var(--bad-border); background: var(--bad-bg); }
+  .sort-prompt {  font-size: 0.78rem; color: var(--ink-soft); margin-bottom: 0.6rem; }
+  /* --- carousel --- */
+  .car { margin: 1.1rem 0 0.4rem; }
+  .car [data-car-next] { border-color: var(--flame); color: var(--flame); }
+  .car.car-done [data-car-next] { border-color: var(--hair); color: var(--ink); }
+  .car-frame { background: var(--white); border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); padding: 1.2rem 1.2rem 1.3rem; min-height: 8.5rem; }
+  .car-count { font-family: var(--sans); font-size: 0.64rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--flame); font-weight: 600; margin-bottom: 0.6rem; }
+  .car-body { font-size: 1rem; line-height: 1.72; }
+  .car-body strong { color: var(--leaf); }
+  .car-nav { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; margin-top: 0.7rem; }
+  .car-dots { display: flex; gap: 0.35rem; align-items: center; }
+  .car-hint { font-family: var(--sans); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+  .car-prompt { display: flex; align-items: baseline; gap: 0.5rem; font-family: var(--sans); font-size: 0.82rem; color: var(--flame); margin-bottom: 0.55rem; }
+  .car-prompt .cp-mark { font-size: 1rem; line-height: 1; }
+  .car-prompt.done { color: var(--leaf); }
+  .car-dot.read { background: var(--leaf); }
+  .car-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--hair); border: none; padding: 0; cursor: pointer; }
+  .car-dot.on { background: var(--flame); }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr)); gap: 0.7rem; margin: 1.1rem 0 0.5rem; }
+  .stat { background: var(--sheet); border-top: 2px solid var(--flame); padding: 0.9rem 0.8rem; text-align: center; }
+  .stat-n {  font-size: 1.7rem; font-weight: 700; color: var(--ink); line-height: 1; }
+  .stat-l { font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); margin-top: 0.45rem; line-height: 1.4; }
+  .blist { list-style: none; margin: 1rem 0 0.4rem; padding: 0; }
+  .blist li { position: relative; padding-left: 1.5rem; font-size: 1rem; line-height: 1.72; margin-bottom: 0.75rem; }
+  .blist li:last-child { margin-bottom: 0; }
+  .blist li::before { content: ""; position: absolute; left: 0; top: 0.62rem; width: 8px; height: 8px; background: var(--flame); }
+  .blist li strong { color: var(--leaf); }
+  .blist.leaf li::before { background: var(--leaf); }
+  .quiet { color: var(--ink-soft); }
+  .quiet.pull { border-left-color: var(--hair); }
   .hidden { display: none !important; }
-  .footer { text-align: center; font-family: var(--sans); font-size: 0.76rem; color: var(--ink-soft); margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid var(--hair); line-height: 1.65; }
+  .footer { text-align: center;  font-size: 0.76rem; color: var(--ink-soft); margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid var(--hair); line-height: 1.65; }
 </style>
 </head>
 <body>
 <div class="container">
-  <div class="themebar"><button class="themebtn" id="theme-btn" type="button">Bright light</button></div>
-
 
   <div class="top-bar hidden" id="top-bar">
     <div class="top-meta"><span id="stage-name">The coming of democracy</span><span class="top-count" id="step-count">Step 1</span></div>
@@ -210,27 +310,22 @@
   </div>
 
   <div id="start-screen">
-    <div class="header-block">
+    <div class="cover">
+      <div class="cover-eyebrow">Kula Revise &middot; Coming of Democracy</div>
+      <h1 class="cover-title">The Year It Should Have Ended</h1>
       <svg class="flourish" viewBox="0 0 260 26" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <line class="rule-ink" x1="0" y1="2" x2="130" y2="24" stroke-width="1.4"/>
         <line class="rule-accent" x1="260" y1="2" x2="130" y2="24" stroke-width="1.4"/>
         <circle class="dot" cx="130" cy="24" r="2.4"/>
       </svg>
-      <div class="eyebrow">Kula Revise &middot; Grade 12 History &middot; Coming of democracy</div>
-      <h1 class="masthead">The Year It Should Have Ended</h1>
-      <div class="sub">1992 to 1993 &middot; Lesson 3 of 5</div>
+      <div class="cover-line">A massacre. A walkout. And the same people back at the table three months later.</div>
+      <div class="cover-sub">1992 to 1993 &middot; Lesson 3 of 5</div>
+      <div class="cover-actions">
+        <button class="btn-primary btn-begin" id="begin-btn">Begin &rarr;</button>
+        <button class="btn-skip hidden" id="skip-btn"><span class="sk-t">Skip the opening if you have done this lesson before</span><span class="sk-a">&rarr;</span></button>
+      </div>
     </div>
-    <div class="intro-box">
-      <div class="intro-label">Where we are</div>
-      <p class="intro-text">This is the lesson that could sink your argument, so you are going to build the case against yourself on purpose. Between June 1992 and June 1993 the violence did exactly what it was designed to do. It stopped the talks. An essay that pretends otherwise is not a strong essay, it is a dishonest one.</p>
-    </div>
-    <div class="key-row">
-      <div class="key-item"><span class="chip chip-argue">Argue</span><span class="key-desc">Take a clear line and hold it</span></div>
-      <div class="key-item"><span class="chip chip-evidence">Evidence</span><span class="key-desc">Back the case with specific facts</span></div>
-      <div class="key-item"><span class="chip chip-weigh">Weigh</span><span class="key-desc">Judge it, answer 'to what extent'</span></div>
-    </div>
-    <button class="btn-start" id="begin-btn"><span class="st">Start with the argument</span><span class="sa">&rarr;</span></button>
-    <div class="footer">About 22 minutes. Six marked questions. You leave holding a sentence that argues against your own case.</div>
+    <div class="footer">About 27 minutes. Nine marked questions, a real UN document, and a fact recap.</div>
   </div>
 
   <div id="flow-screen" class="hidden">
@@ -238,6 +333,23 @@
     <div class="nav">
       <button class="btn-secondary" id="back-btn">&larr; Back</button>
       <button class="btn-primary" id="next-btn">Continue &rarr;</button>
+    </div>
+  </div>
+
+  <div class="modal-back hidden" id="added-modal">
+    <div class="modal">
+      <div class="modal-label">Added to your skeleton</div>
+      <p id="added-text"></p>
+      <button class="btn-primary" id="added-close">Got it</button>
+    </div>
+  </div>
+
+  <div class="modal-back hidden" id="done-modal">
+    <div class="modal">
+      <div class="modal-label">Lesson complete</div>
+      <h3>The Year It Should Have Ended</h3>
+      <p>Click on the arrow above to continue to the next lesson.</p>
+      <button class="btn-primary" id="done-close">Got it</button>
     </div>
   </div>
 
@@ -252,12 +364,12 @@
       <div class="score-block"><div class="score-num red" id="r-band">-</div><div class="score-label">Standard</div></div>
     </div>
     <div class="grade-desc" id="r-desc"></div>
-    <div class="breakdown"><div class="breakdown-label">By essay skill</div><div id="r-breakdown"></div></div>
+    <div class="breakdown"><div class="breakdown-label">By skill</div><div id="r-breakdown"></div></div>
     <div class="card">
-      <div class="stage-tag">The essay so far</div>
-      <p class="pull">Neither side could win, but a stalemate does not negotiate itself: leaders had to choose to act on it, and in 1990 De Klerk and Mandela did. Between 1990 and 1992 both sides gave up things nobody could make them give up, which is what political will looks like in practice. But violence repeatedly did what it was meant to do and stopped the talks, so will alone cannot explain the outcome.</p><p>Sentence three is the one that usually goes missing. It concedes. A question that asks to what extent is inviting you to say how far, and you cannot say how far if you only ever argue one way.</p>
+      <div class="stage-tag">Your running summary</div>
+      <p class="pull quiet">Neither side could win, but a stalemate does not negotiate itself: leaders had to choose to act on it, and in 1990 De Klerk and Mandela did. Between 1990 and 1992 both sides gave up things nobody could make them give up, which is what political will looks like in practice. But violence repeatedly did what it was meant to do and stopped the talks, so will alone cannot explain the outcome.</p><p class="quiet">Sentence three is the one that usually goes missing. It concedes. A question that asks to what extent is inviting you to say how far, and you cannot say how far if you only ever argue one way.</p>
     </div>
-    <div class="nav" style="justify-content: center;"><button class="btn-primary" id="redo-btn">&#8635; Restart lesson</button></div>
+    <div class="nav" style="justify-content: center; gap: 0.7rem;"><button class="btn-secondary" id="redo-btn">&#8635; Restart lesson</button><button class="btn-primary" id="finish-btn">Finish &rarr;</button></div>
     <div class="footer">Next: Lesson 4, getting to the vote.</div>
   </div>
 </div>
@@ -293,15 +405,24 @@ const BANDS = [
 
 const FLOW = [
   {
-    "type": "narrative",
+    "type": "story",
     "stage": "Recognise",
-    "html": "<div class=\"stage-tag\">Something you have seen</div><h2>The Thing That Should Have Ended It</h2><p>Two groups have been talking for months. It has been slow and it has been working. Then somebody on one side does something so bad that everyone watching assumes the talking is finished.</p><div class=\"scenario\">The other group walks out. They say publicly that they will not sit down with these people again. Everyone agrees they are right to walk. Weeks pass. Nothing.<div class=\"scenario-meta\">After the walkout</div></div>"
+    "marker": "1992",
+    "markerLabel": "Boipatong, Vaal Triangle",
+    "lines": [
+      "It is the night of 17 June and men are coming into the township from the hostel.",
+      "By morning dozens of your neighbours are dead.",
+      "People say the police watched. Some say the police helped.",
+      "Two hundred kilometres away, the talks are meant to resume next week.",
+      "Nobody could blame you for never sitting down with them again.",
+      "Three months later, the same people are back at the table."
+    ]
   },
   {
     "type": "question",
     "stage": "Recognise",
     "kind": "everyday",
-    "q": "Whoever wanted the talks to fail has just succeeded. What does the walkout prove about the people who left?",
+    "q": "After something terrible, one side walks out of the talks. What does that prove about them?",
     "options": [
       "Nothing about their commitment. It proves violence works on serious people",
       "That they never wanted the talks to succeed in the first place",
@@ -309,13 +430,13 @@ const FLOW = [
       "That the talks had been going badly for a long time already"
     ],
     "correct": 0,
-    "explanation": "{opt0} is right. Walking out after something terrible is the normal human response. It is not a sign of bad faith. That is exactly why doing it to a negotiation works so well as a weapon. You will watch it work three times in this lesson."
+    "explanation": "{opt0}. Walking out after something terrible is normal. It is not proof that anyone was faking. That is exactly why doing it to a negotiation works so well. You will watch it work three times in this lesson."
   },
   {
     "type": "question",
     "stage": "Recognise",
     "kind": "everyday",
-    "q": "For the talks to restart, what has to happen that did not have to happen?",
+    "q": "Nothing can force the two sides back to the table. So what has to happen for the talks to restart?",
     "options": [
       "Someone has to decide to come back, knowing it will happen again",
       "The person responsible has to be arrested and put on trial first",
@@ -323,25 +444,44 @@ const FLOW = [
       "Somebody outside the argument has to force both groups to return"
     ],
     "correct": 0,
-    "explanation": "{opt0}. Nothing makes them come back. No court, no army, no outside power. You are going to spend this lesson and the next one filling that gap with evidence."
+    "explanation": "{opt0}. There is no court, no army and nobody outside who can order it. Somebody has to choose to walk back in. You are going to spend this lesson and the next one finding out why they did."
   },
   {
     "type": "narrative",
     "stage": "Destabilise",
-    "html": "<div class=\"stage-tag\">The turn</div><h2>Argue Against Yourself, on Purpose</h2><p>Your question asks to what extent political will produced democracy in 1994. There is a serious answer that says: not much. The violence of 1992 and 1993 stopped the talks, repeatedly, and no amount of will prevented that.</p><p class=\"pull\">If you cannot state the case against your line properly, a marker will assume you do not know it exists.</p><p>So this lesson builds that case at full strength. Then Lesson 4 answers it. That order is deliberate, and it is the order a good essay uses too.</p>"
+    "html": "<div class=\"stage-tag\">The turn</div><h2>The Case Against Political Will</h2><p>There is a strong answer to this topic that says political will had almost nothing to do with it. Between June 1992 and June 1993 the violence stopped the talks more than once.</p><p class=\"pull\">No leader prevented a single attack.</p><p>What follows is the strongest evidence anyone has for that answer. What happened after each attack comes in Lesson 4.</p>"
   },
   {
     "type": "narrative",
     "stage": "Act",
-    "html": "<div class=\"stage-tag\">The evidence</div><h2>June 1992, Boipatong</h2><p>In Boipatong, in the Vaal Triangle, residents were attacked in their homes and dozens of people were killed. The attackers came from a nearby hostel. Survivors accused the police of helping them, or at least of standing by.</p><p>The ANC broke off negotiations with the government. CODESA 2 had already deadlocked in May and never reconvened. After Boipatong the whole process stopped.</p><figure class=\"figure\"><svg viewBox=\"0 0 400 226\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"The negotiations running until Boipatong in June 1992, a three month gap containing Bisho in September, and the talks resuming with the Record of Understanding in September 1992.\"><text x=\"10\" y=\"18\" style=\"font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:10.5px;letter-spacing:1.6px;fill:var(--ink-soft)\">TALKS RUNNING, STOPPED, RUNNING</text><line x1=\"150\" y1=\"60\" x2=\"270\" y2=\"60\" style=\"stroke:var(--flame);stroke-width:1.5\"/><polygon points=\"150,60 160,55 160,65\" style=\"fill:var(--flame)\"/><polygon points=\"270,60 260,55 260,65\" style=\"fill:var(--flame)\"/><text x=\"210\" y=\"48\" text-anchor=\"middle\" style=\"font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;fill:var(--flame)\">three months, no talks</text><line x1=\"20\" y1=\"104\" x2=\"150\" y2=\"104\" style=\"stroke:var(--leaf);stroke-width:4\"/><line x1=\"150\" y1=\"104\" x2=\"270\" y2=\"104\" style=\"stroke:var(--bad-border);stroke-width:2;stroke-dasharray:3 5\"/><line x1=\"270\" y1=\"104\" x2=\"380\" y2=\"104\" style=\"stroke:var(--leaf);stroke-width:4\"/><line x1=\"150\" y1=\"90\" x2=\"150\" y2=\"118\" style=\"stroke:var(--ink);stroke-width:1.5\"/><line x1=\"270\" y1=\"90\" x2=\"270\" y2=\"118\" style=\"stroke:var(--ink);stroke-width:1.5\"/><circle cx=\"210\" cy=\"104\" r=\"4\" style=\"fill:var(--bad-border)\"/><text x=\"150\" y=\"84\" text-anchor=\"middle\" style=\"font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:11.5px;fill:var(--flame)\">June 1992</text><text x=\"270\" y=\"84\" text-anchor=\"middle\" style=\"font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:11.5px;fill:var(--flame)\">September 1992</text><text x=\"150\" y=\"138\" text-anchor=\"middle\" style=\"font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;fill:var(--ink)\">Boipatong,</text><text x=\"150\" y=\"154\" text-anchor=\"middle\" style=\"font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;fill:var(--ink)\">CODESA falls</text><text x=\"210\" y=\"176\" text-anchor=\"middle\" style=\"font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:11.5px;fill:var(--ink-soft)\">Bisho, September</text><text x=\"270\" y=\"138\" text-anchor=\"middle\" style=\"font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;fill:var(--ink)\">Record of</text><text x=\"270\" y=\"154\" text-anchor=\"middle\" style=\"font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;fill:var(--ink)\">Understanding</text><line x1=\"20\" y1=\"196\" x2=\"380\" y2=\"196\" style=\"stroke:var(--hair);stroke-width:1\"/><text x=\"20\" y=\"216\" style=\"font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;fill:var(--ink-soft)\">Nothing forced either side back to the table.</text></svg><figcaption>The negotiations from June to September 1992: running, stopped by Boipatong, and running again after the Record of Understanding. The three month gap matters because nothing in it forced either side back to the table. Original diagram by Kula Revise.</figcaption></figure>"
+    "html": "<div class=\"stage-tag\">The evidence</div><h2>17 June 1992, Boipatong</h2><p>On <span class=\"key\">17 June 1992</span>, in Boipatong in the Vaal Triangle, residents were attacked in their homes and dozens of people were killed. The attackers came from a nearby hostel. Survivors accused the police of complicity: of helping the attackers, or at least of standing by.</p>",
+    "terms": [
+      {
+        "t": "hostel",
+        "d": "Large single-sex housing built for migrant workers. Hostel residents and township residents were often in conflict."
+      },
+      {
+        "t": "complicity",
+        "d": "Helping something happen, or letting it happen when you could have stopped it."
+      },
+      {
+        "t": "Vaal Triangle",
+        "d": "The industrial area south of Johannesburg, including Boipatong, Sharpeville and Sebokeng."
+      }
+    ]
+  },
+  {
+    "type": "narrative",
+    "stage": "Act",
+    "html": "<div class=\"stage-tag\">The evidence</div><h2>The Talks Stop</h2><p>The ANC broke off negotiations with the government on 21 June and put fourteen demands to De Klerk. CODESA 2 had already deadlocked in May and never reconvened. After Boipatong the whole process stopped.</p><figure class=\"figure\"><svg viewBox=\"0 0 400 202\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"The negotiations running until Boipatong in June 1992, a three month gap containing Bisho in September, and the talks resuming with the Record of Understanding in September 1992.\"><line x1=\"150\" y1=\"60\" x2=\"270\" y2=\"60\" style=\"stroke:var(--flame);stroke-width:1.5\"/><polygon points=\"150,60 160,55 160,65\" style=\"fill:var(--flame)\"/><polygon points=\"270,60 260,55 260,65\" style=\"fill:var(--flame)\"/><text x=\"210\" y=\"48\" text-anchor=\"middle\" style=\"font-family:Georgia,'Times New Roman',serif;font-size:12px;fill:var(--flame)\">three months, no talks</text><line x1=\"20\" y1=\"104\" x2=\"150\" y2=\"104\" style=\"stroke:var(--leaf);stroke-width:4\"/><line x1=\"150\" y1=\"104\" x2=\"270\" y2=\"104\" style=\"stroke:var(--bad-border);stroke-width:2;stroke-dasharray:3 5\"/><line x1=\"270\" y1=\"104\" x2=\"380\" y2=\"104\" style=\"stroke:var(--leaf);stroke-width:4\"/><line x1=\"150\" y1=\"90\" x2=\"150\" y2=\"118\" style=\"stroke:var(--ink);stroke-width:1.5\"/><line x1=\"270\" y1=\"90\" x2=\"270\" y2=\"118\" style=\"stroke:var(--ink);stroke-width:1.5\"/><circle cx=\"210\" cy=\"104\" r=\"4\" style=\"fill:var(--bad-border)\"/><text x=\"150\" y=\"84\" text-anchor=\"middle\" style=\"font-family:Georgia,'Times New Roman',serif;font-size:11.5px;fill:var(--flame)\">June 1992</text><text x=\"270\" y=\"84\" text-anchor=\"middle\" style=\"font-family:Georgia,'Times New Roman',serif;font-size:11.5px;fill:var(--flame)\">September 1992</text><text x=\"150\" y=\"138\" text-anchor=\"middle\" style=\"font-family:Georgia,'Times New Roman',serif;font-size:12px;fill:var(--ink)\">Boipatong,</text><text x=\"150\" y=\"154\" text-anchor=\"middle\" style=\"font-family:Georgia,'Times New Roman',serif;font-size:12px;fill:var(--ink)\">CODESA falls</text><text x=\"210\" y=\"176\" text-anchor=\"middle\" style=\"font-family:Georgia,'Times New Roman',serif;font-size:11.5px;fill:var(--ink-soft)\">Bisho, September</text><text x=\"270\" y=\"138\" text-anchor=\"middle\" style=\"font-family:Georgia,'Times New Roman',serif;font-size:12px;fill:var(--ink)\">Record of</text><text x=\"270\" y=\"154\" text-anchor=\"middle\" style=\"font-family:Georgia,'Times New Roman',serif;font-size:12px;fill:var(--ink)\">Understanding</text></svg><figcaption>The talks from June to September 1992. Running, then stopped by Boipatong on 17 June, then running again after the Record of Understanding. The three month gap matters because nothing in it forced either side back to the table. Original diagram by Kula Revise.</figcaption></figure>"
   },
   {
     "type": "source",
     "stage": "Act",
-    "html": "<div class=\"stage-tag\">The evidence</div><h2>The Chain, Link by Link</h2><p>Read this as a sequence, not a list. Each link is caused by the one above it. That is what the marker means by writing chronologically and coherently.</p>",
+    "html": "<div class=\"stage-tag\">The evidence</div><h2>The Chain, Link by Link</h2><p>Read this in order. Each thing on the list is caused by the one above it.</p>",
     "source": {
       "clause": "5.",
-      "attr": "Source E: from Boipatong to the Record of Understanding, June to September 1992. A summary of the record, written for Kula Revise.",
+      "attr": "Explainer 5: from Boipatong to the Record of Understanding, June to September 1992. Written by Kula Revise from the historical record. Not a document from the time.",
       "body": "<p>June 1992: the Boipatong attack. Dozens killed. Police accused of complicity.</p><p>June 1992: the ANC withdraws from negotiations. CODESA 2 had already deadlocked in May, and the process now stops completely.</p><p>Mid 1992: the ANC, the SACP and COSATU launch rolling mass action, including a general strike joined by millions of workers.</p><p>September 1992: at Bisho in the Ciskei, marchers are shot by homeland soldiers and unarmed people are killed.</p><p>September 1992: <em>the two sides sign a Record of Understanding and the talks restart.</em></p>",
       "evidence": {
         "cls": "exit",
@@ -354,15 +494,17 @@ const FLOW = [
     "type": "question",
     "stage": "Act",
     "level": "Evidence",
-    "q": "Which sequence is in the correct order?",
-    "options": [
-      "Boipatong, the ANC withdrawal, rolling mass action, Bisho, the Record of Understanding",
-      "Rolling mass action, Boipatong, Bisho, the ANC withdrawal, the Record of Understanding",
-      "Boipatong, Bisho, the ANC withdrawal, the Record of Understanding, rolling mass action",
-      "The ANC withdrawal, Boipatong, the Record of Understanding, Bisho, rolling mass action"
+    "mode": "order",
+    "correct": 1,
+    "q": "Put the collapse and the return in order, earliest first.",
+    "items": [
+      "Boipatong, 17 June 1992",
+      "The ANC withdraws from negotiations",
+      "Rolling mass action and the general strike",
+      "Bisho, 7 September 1992",
+      "The Record of Understanding, 26 September 1992"
     ],
-    "correct": 0,
-    "explanation": "{opt0} is the right order. Boipatong in June causes the withdrawal. The withdrawal frees the ANC to escalate through mass action. Bisho in September shows both sides where escalating ends. The Record of Understanding follows within weeks. {opt1}, {opt2} and {opt3} shuffle those events. Get the order wrong and your causes stop being causes. A marker cannot award analysis marks for a sequence that does not hold."
+    "explanation": "Boipatong causes the walkout. The walkout frees the ANC to escalate. Bisho shows both sides where escalating ends. Then the Record of Understanding. Put them in the wrong order and your causes stop being causes. The marker then has nothing to credit as analysis."
   },
   {
     "type": "question",
@@ -376,12 +518,26 @@ const FLOW = [
       "Yes, because the collapse showed that neither side had ever been serious at all"
     ],
     "correct": 0,
-    "explanation": "{opt0} is the balance this question wants from you. The breakdown is real and it damages any claim that will alone did the work. It does not show the will was fake, because the same people came back within three months. {opt1} and {opt3} treat one setback as proof of bad faith. {opt2} denies that the violence mattered, and that throws away your strongest evidence in the other direction. A marker pays for measurement here, not for a yes or a no."
+    "explanation": "{opt0}. Hold both halves at once. The talks did break, so will alone did not do the work. The same people were back within three months, so the will was not fake either. {opt2} says the violence hardly mattered, which throws away your strongest evidence. The marker wants how far, not yes or no."
   },
   {
     "type": "narrative",
     "stage": "Act",
-    "html": "<div class=\"stage-tag\">The evidence</div><h2>Was Somebody Organising It?</h2><p>Many people believed a third force was at work: elements inside the security forces stirring up conflict between the ANC and Inkatha in order to wreck the negotiations.</p><p>A commission under Judge Richard Goldstone was appointed to investigate the violence. Other explanations were argued too: that Inkatha was fighting its exclusion from talks dominated by its rival, and that hostel dwellers and township residents were already in conflict over jobs and land.</p><p>Handle this carefully in an essay. Write that a third force was suspected and investigated and that the debate about it continued. Do not write that it was proved, because that goes beyond what you can support.</p>"
+    "html": "<div class=\"stage-tag\">The evidence</div><h2>Was Somebody Organising It?</h2><p>Many people believed a <strong>third force</strong> was at work: elements inside the security forces stirring up conflict between the ANC and Inkatha in order to wreck the negotiations. Inkathagate in <span class=\"key\">1991</span> had already shown secret police funding of Inkatha.</p><p>A commission under Judge Richard Goldstone was appointed to investigate the violence. Three explanations were argued at the time:</p><ul class=\"blist\"><li><strong>A third force.</strong> Elements inside the security forces stirring up conflict to wreck the talks.</li><li><strong>Inkatha fighting its exclusion.</strong> It was losing ground in talks dominated by its rival.</li><li><strong>Older conflict.</strong> Hostel dwellers and township residents were already in dispute over jobs and housing.</li></ul><p>Handle this carefully. Write that a third force was suspected and investigated and that the argument continued. Do not write that it was proved.</p><div class=\"memory\"><div class=\"memory-label\">Remember it like this</div><p>A fight in a crowded corridor. Somebody keeps shoving from behind, and you never see who.</p><p>Suspected and investigated. Not proved. Those words are worth a mark.</p></div>",
+    "terms": [
+      {
+        "t": "third force",
+        "d": "The name given to a suspected hidden group inside the security forces. It was accused of stirring up violence to wreck the talks."
+      },
+      {
+        "t": "Goldstone Commission",
+        "d": "The judicial inquiry, led by Judge Richard Goldstone, appointed to investigate the political violence of these years."
+      },
+      {
+        "t": "commission of inquiry",
+        "d": "An investigation set up by the state, led by a judge, which takes evidence and reports in public."
+      }
+    ]
   },
   {
     "type": "question",
@@ -395,12 +551,41 @@ const FLOW = [
       "It does not matter much, as long as the rest of the paragraph is accurate"
     ],
     "correct": 0,
-    "explanation": "{opt0} is right. A history essay is judged on whether your claims are the size of your evidence. Suspected and investigated is exactly the size of this one. Write that the third force was proved and you have gone past what you can support. That costs you more than leaving it out."
+    "explanation": "{opt0}. Your claim has to be the size of your evidence. Suspected and investigated is the size of this one. Write that the third force was proved and you have gone past what you can back up. That costs you more than leaving it out."
   },
   {
     "type": "narrative",
     "stage": "Act",
-    "html": "<div class=\"stage-tag\">The evidence</div><h2>September 1992, and the Moment It Turned</h2><p>With the talks dead, the ANC, the SACP and COSATU launched rolling mass action: a general strike joined by millions of workers, and marches on the homelands whose leaders were resisting change.</p><p>One of those marches ended at Bisho, the capital of the Ciskei, where homeland soldiers opened fire on the marchers and unarmed people were killed.</p><p class=\"pull\">Bisho was the point where both sides looked at where the escalation was heading and did not like the view.</p>"
+    "html": "<div class=\"stage-tag\">The evidence</div><h2>August and September 1992: Pressure and Bisho</h2><p>With the talks dead, the ANC, the SACP and COSATU, known together as the tripartite alliance, launched <strong>rolling mass action</strong>: a general strike joined by millions of workers in <span class=\"key\">August 1992</span>, and marches on the homelands whose leaders were resisting change.</p>",
+    "terms": [
+      {
+        "t": "rolling mass action",
+        "d": "A campaign of strikes and marches run one after another over weeks, rather than one protest."
+      },
+      {
+        "t": "general strike",
+        "d": "A strike across many industries at once, meant to stop the economy rather than one workplace."
+      },
+      {
+        "t": "COSATU",
+        "d": "The Congress of South African Trade Unions, the ANC's trade union ally."
+      },
+      {
+        "t": "tripartite alliance",
+        "d": "The alliance of the ANC, the SACP and COSATU, which acted together during the negotiations."
+      }
+    ]
+  },
+  {
+    "type": "narrative",
+    "stage": "Act",
+    "html": "<div class=\"stage-tag\">The evidence</div><h2>7 September 1992: Bisho</h2><p>One march ended at <strong>Bisho</strong>, the capital of the Ciskei, on <span class=\"key\">7 September 1992</span>. Soldiers of the homeland leader Oupa Gqozo opened fire on the marchers and unarmed people were killed.</p><p class=\"pull\">After Bisho both sides could see where this was going, and neither of them wanted it.</p><div class=\"memory\"><div class=\"memory-label\">Remember it like this</div><p>Boipatong stopped the talks. Bisho is what made both sides want them back.</p><p>One massacre broke the process. The next one showed everybody where breaking it led.</p></div>",
+    "terms": [
+      {
+        "t": "homeland",
+        "d": "A territory set aside by apartheid law for one African group, run by a leader the government approved of."
+      }
+    ]
   },
   {
     "type": "question",
@@ -414,12 +599,102 @@ const FLOW = [
       "The National Party had been losing by-elections to its rivals on the political right"
     ],
     "correct": 0,
-    "explanation": "{opt0} is pressure applied from outside the negotiating room, which is what this claim needs. {opt1}, {opt2} and {opt3} are all real and all about what happened inside the talks, or before them. Matching the evidence to the exact claim is half of the mark. A true fact that does not fit your sentence earns nothing."
+    "explanation": "{opt0} is pressure from outside the room, which is what the claim needs. {opt1}, {opt2} and {opt3} are all real and all about what happened inside the talks. A true fact that does not fit your sentence earns you nothing. Match the evidence to the claim."
+  },
+  {
+    "type": "question",
+    "stage": "Act",
+    "level": "Argue",
+    "q": "Which sentence uses Bisho to argue rather than to report it?",
+    "options": [
+      "Bisho showed both sides where escalation ended, which is why they came back to talking",
+      "At Bisho in September 1992 homeland soldiers opened fire on a march and people died",
+      "The shootings at Bisho were one of the worst incidents of the whole negotiation period",
+      "Bisho proves that the ANC had lost control of its own supporters by September 1992"
+    ],
+    "correct": 0,
+    "explanation": "{opt0} says what the event did to the people watching it. That is arguing. {opt1} is the trap: true, and it stops there. {opt3} goes further than the evidence, because the march was organised by the alliance rather than out of control. Say what an event changed and the marker can credit you for analysis."
+  },
+  {
+    "type": "source",
+    "stage": "Act",
+    "html": "<div class=\"stage-tag\">The evidence</div><h2>The Outside World Puts It on the Record</h2><p>This one is a real document, not an explainer. It is a resolution of the United Nations Security Council, the body that speaks for the international community on threats to peace. Read who is being named, and what is being asked for.</p>",
+    "source": {
+      "clause": "6.",
+      "attr": "Source: UN Security Council Resolution 772, adopted at the 3107th meeting, 17 August 1992, and Resolution 765, adopted 16 July 1992. Operative decisions summarised by Kula Revise. The quoted phrase is the Council's own.",
+      "body": "<p><strong>Resolution 765, 16 July 1992.</strong> The Council condemns the escalating violence in South Africa, and the massacre at Boipatong on 17 June 1992 in particular. It invites the Secretary-General to appoint a Special Representative to recommend measures that would help end the violence and create conditions for negotiations.</p><p><strong>Resolution 772, 17 August 1992.</strong> The Council authorises the deployment of United Nations observers in South Africa as a matter of urgency, working alongside the structures set up under the National Peace Accord. It calls on the government and on all parties to cooperate with them.</p><p>It decides to stay with the matter until there is <em>\"a democratic, non-racial and united South Africa\"</em>.</p>",
+      "evidence": {
+        "cls": "exit",
+        "label": "Evidence &middot; the outside record"
+      },
+      "toggle": "A Security Council resolution is a formal decision taken by fifteen countries, written down and dated, and it is a source you can trust for what was happening and when. Use it carefully. It proves the outside world thought the violence was serious enough to send observers. It does not prove that outside pressure is what brought the talks back. The Record of Understanding came from Meyer and Ramaphosa, not from New York."
+    },
+    "terms": [
+      {
+        "t": "Security Council",
+        "d": "The part of the United Nations that deals with threats to peace. Fifteen countries sit on it."
+      },
+      {
+        "t": "resolution",
+        "d": "A formal decision taken by a UN body, written down, numbered and dated."
+      },
+      {
+        "t": "Special Representative",
+        "d": "A person appointed by the head of the United Nations to investigate a situation and recommend action."
+      },
+      {
+        "t": "observer mission",
+        "d": "A team sent to watch and report on what is happening, without taking sides or using force."
+      }
+    ]
   },
   {
     "type": "narrative",
     "stage": "Act",
-    "html": "<div class=\"stage-tag\">The evidence</div><h2>Two Men, and a Document</h2><p>Behind the scenes, Cyril Ramaphosa for the ANC and Roelf Meyer for the National Party kept a channel open. In September 1992 the two sides signed a Record of Understanding.</p><p>The government agreed to release more political prisoners, to fence the hostels, and to ban the carrying of traditional weapons at rallies. Both sides committed themselves to peace and to continuing negotiations.</p><p>Three months after Boipatong, the same people were back at the table. Nobody made them.</p>"
+    "html": "<div class=\"stage-tag\">The evidence</div><h2>26 September 1992: Two Men and a Document</h2><p>Behind the scenes, <strong>Cyril Ramaphosa</strong> for the ANC and <strong>Roelf Meyer</strong> for the National Party had kept a channel open the whole time. On <span class=\"key\">26 September 1992</span> the two sides signed the <strong>Record of Understanding</strong>.</p><p class=\"sort-prompt\">Tap the arrows to read all 4.</p><div class=\"car\" data-car=\"[&quot;The government agreed to <strong>release</strong> more political prisoners.&quot;, &quot;Hostels linked to the violence would be <strong>fenced and policed</strong>.&quot;, &quot;The <strong>carrying of traditional weapons</strong> at rallies would be banned.&quot;, &quot;Both sides committed to peace and to continuing negotiations.&quot;]\"><div class=\"car-prompt\" data-car-prompt></div><div class=\"car-frame\"><div class=\"car-count\" data-car-count></div><div class=\"car-body\" data-car-body></div></div><div class=\"car-nav\"><button class=\"btn-small\" data-car-prev>&larr;</button><span class=\"car-hint\" data-car-hint></span><div class=\"car-dots\"><button class=\"car-dot\" data-car-dot></button><button class=\"car-dot\" data-car-dot></button><button class=\"car-dot\" data-car-dot></button><button class=\"car-dot\" data-car-dot></button></div><button class=\"btn-small\" data-car-next>&rarr;</button></div></div>",
+    "terms": [
+      {
+        "t": "Record of Understanding",
+        "d": "The agreement of 26 September 1992 that restarted the talks after Boipatong."
+      },
+      {
+        "t": "channel",
+        "d": "A private line of contact kept open between two sides even when public talks have stopped."
+      }
+    ]
+  },
+  {
+    "type": "narrative",
+    "stage": "Act",
+    "html": "<div class=\"stage-tag\">The evidence</div><h2>What Inkatha Did Next</h2><p>Inkatha read the deal as the ANC and the government agreeing over its head. Buthelezi walked out of the talks.</p><p>On <span class=\"key\">8 October 1992</span> he formed the <strong>Concerned South Africans Group</strong>, known as COSAG. It brought together the people the settlement was leaving behind:</p><ul class=\"blist\"><li>The <strong>Inkatha Freedom Party</strong>, which wanted a federal state and recognition for the Zulu king.</li><li>The <strong>Conservative Party</strong>, which wanted a separate Afrikaner homeland.</li><li>The governments of <strong>KwaZulu, Bophuthatswana and Ciskei</strong>, whose power ended if the homelands did.</li></ul><p>COSAG became the <strong>Freedom Alliance</strong> in October 1993. Watch for these names again in Lesson 4, because two of them collapse in March 1994.</p><p>Three months after Boipatong, the same people were back at the table. Nothing had forced them.</p>",
+    "terms": [
+      {
+        "t": "COSAG",
+        "d": "The Concerned South Africans Group, formed on 8 October 1992 by parties opposed to the ANC and government deal."
+      },
+      {
+        "t": "Freedom Alliance",
+        "d": "What COSAG became in October 1993. It refused to take part in the transitional arrangements."
+      },
+      {
+        "t": "federal state",
+        "d": "A state where provinces hold real powers of their own, rather than everything being decided nationally."
+      }
+    ]
+  },
+  {
+    "type": "question",
+    "stage": "Act",
+    "level": "Evidence",
+    "q": "Which three things did the government agree to in the Record of Understanding?",
+    "options": [
+      "Release more prisoners, fence the hostels, and ban weapons at rallies",
+      "Lift the state of emergency, unban the ANC, and free Nelson Mandela",
+      "Repeal the apartheid laws, disband the police, and set an election date",
+      "Hand over the homelands, share the cabinet, and write a new constitution"
+    ],
+    "correct": 0,
+    "explanation": "{opt0}. All three answer the violence directly, which is why they were the price of getting the ANC back. {opt1} lists things that had already happened in 1990. Name the three and you can show the marker that the talks restarted on terms, not on goodwill."
   },
   {
     "type": "question",
@@ -433,12 +708,38 @@ const FLOW = [
       "The Record of Understanding shows the ANC had been bluffing when it walked out"
     ],
     "correct": 0,
-    "explanation": "{opt0} makes the timing carry the point, and that is arguing. {opt1} narrates and stops. {opt2} calls the Record significant without saying why, which markers see constantly and cannot credit. {opt3} reads the walkout as a bluff, and the three-month collapse of CODESA is against you. If your paragraph never says what the evidence proves, it stays on middle marks."
+    "explanation": "{opt0} uses the three months as the point. That is arguing. {opt1} is the trap. It is true, and it stops there. {opt2} calls it significant and never says why, and the marker cannot credit that. If your paragraph never says what the evidence proves, it stays on middle marks."
   },
   {
     "type": "narrative",
     "stage": "Act",
-    "html": "<div class=\"stage-tag\">The evidence</div><h2>1993, and It Happens Again</h2><p>Multi-party talks resumed at the World Trade Centre in April 1993. Within days the fragile balance broke.</p><p>On 10 April 1993 Chris Hani, leader of the SACP and one of the most popular figures in the liberation movement, was shot dead outside his home in Boksburg by Janusz Walus, a Polish immigrant, using a gun supplied by a member of the Conservative Party.</p><p>Hani had been the person persuading militant young people to give negotiation a chance. The country came close to open conflict. Mandela went on national television and called for calm, at a moment when he held no office and the state was still run by the National Party.</p><p>In June 1993 the AWB drove an armoured vehicle through the front of the World Trade Centre while the talks were sitting.</p>"
+    "html": "<div class=\"stage-tag\">The evidence</div><h2>1993: Back to the Table, and It Happens Again</h2><p>On <span class=\"key\">1 April 1993</span> multi-party talks resumed at the World Trade Centre, now with <strong>26 parties</strong>, including several that had stayed away from CODESA. This time the forum was harder to break: it agreed that no single party could block a decision on its own.</p><p>Nine days later the balance nearly went. On <span class=\"key\">10 April 1993</span> <strong>Chris Hani</strong>, leader of the SACP and one of the most popular figures in the liberation movement, was shot dead outside his home in Boksburg. The killer was <strong>Janusz Walus</strong>, a Polish immigrant, using a gun supplied by <strong>Clive Derby-Lewis</strong>, a Conservative Party MP. A neighbour took down the registration of the car, which is how they were caught.</p>",
+    "terms": [
+      {
+        "t": "Multi-Party Negotiating Forum",
+        "d": "The talks that replaced CODESA from April 1993, with 26 parties and rules that stopped any one party blocking everything."
+      },
+      {
+        "t": "SACP",
+        "d": "The South African Communist Party, an ally of the ANC and part of the tripartite alliance."
+      }
+    ]
+  },
+  {
+    "type": "narrative",
+    "stage": "Act",
+    "html": "<div class=\"stage-tag\">The evidence</div><h2>Why Hani Mattered</h2><p>Hani was the person persuading angry young people to give negotiation a chance. Mandela went on national television and called for calm, at a moment when he held no office and the state was still run by the National Party.</p>"
+  },
+  {
+    "type": "narrative",
+    "stage": "Act",
+    "html": "<div class=\"stage-tag\">The evidence</div><h2>A Date, and an Armoured Vehicle</h2><p>On <span class=\"key\">3 June 1993</span> the parties set the election date: <span class=\"key\">27 April 1994</span>. On <span class=\"key\">25 June 1993</span> the AWB drove an armoured vehicle through the front of the World Trade Centre while the talks were sitting.</p><div class=\"memory\"><div class=\"memory-label\">Remember it like this</div><p>Hold 1993 by the gaps between the dates.</p><p>Hani is killed on 10 April. The election date is set eight weeks later, on 3 June. The AWB drives in three weeks after that, on 25 June.</p><p>Worst thing, then a date, then a vehicle through the glass. Eight weeks, then three.</p></div>",
+    "terms": [
+      {
+        "t": "AWB",
+        "d": "The Afrikaner Weerstandsbeweging, a far-right movement that opposed negotiation and used force against it."
+      }
+    ]
   },
   {
     "type": "question",
@@ -452,7 +753,26 @@ const FLOW = [
       "As unimportant, since the negotiations restarted for reasons that had nothing to do with it"
     ],
     "correct": 0,
-    "explanation": "{opt0} is right, and the detail that earns the mark is that Mandela held no state office. He could not order anyone to do anything. {opt1} dismisses speeches, which ignores what that moment needed. {opt2} claims full control, and the anger after Hani was real and hard to hold. {opt3} calls it unimportant, but the election date was set within weeks. Name the office he did not hold and you turn a fact into evidence."
+    "explanation": "{opt0}, and the detail that earns it is that Mandela held no office. He could not order anyone to do anything. {opt2} says the ANC was in full control, which is too strong: the anger after Hani was real and hard to hold. Name the office he did not have, and you turn a fact into evidence."
+  },
+  {
+    "type": "question",
+    "stage": "Act",
+    "level": "Weigh",
+    "q": "How far did the killing of Chris Hani damage the negotiations?",
+    "options": [
+      "It nearly broke them, and then it pushed the parties into fixing a date",
+      "It ended them, and the talks did not resume until the following year at all",
+      "It had almost no effect, because the multi-party talks had only just restarted",
+      "It helped them, because it removed an opponent of the negotiated settlement"
+    ],
+    "correct": 0,
+    "explanation": "{opt0}. Both halves are true at once, which is what makes this a good answer to a how far question. The country came close to open conflict, and the election date followed within eight weeks. {opt3} has it backwards: Hani was the man holding militant young people inside the process. Say what an event nearly did and what it actually did, and you show the marker judgement."
+  },
+  {
+    "type": "narrative",
+    "stage": "Act",
+    "html": "<div class=\"stage-tag\">Before you move on</div><div class=\"recap\"><h2>The Facts From Lesson 3</h2><p class=\"sort-prompt\">Tap the arrows to read all 9.</p><div class=\"car\" data-car=\"[&quot;<strong><span class=\\&quot;key\\&quot;>17 June 1992</span>, Boipatong:</strong> dozens killed in the Vaal Triangle. Police accused of complicity. The ANC withdraws on 21 June with fourteen demands.&quot;, &quot;<strong>Third force:</strong> a suspected hidden group inside the security forces. Investigated by the Goldstone Commission. Suspected and investigated, not proved.&quot;, &quot;<strong><span class=\\&quot;key\\&quot;>August 1992</span>:</strong> rolling mass action by the ANC, the SACP and COSATU, including a general strike joined by millions.&quot;, &quot;<strong><span class=\\&quot;key\\&quot;>7 September 1992</span>, Bisho:</strong> Ciskei soldiers under Oupa Gqozo shoot unarmed marchers.&quot;, &quot;<strong>16 July and <span class=\\&quot;key\\&quot;>17 August 1992</span>:</strong> UN Security Council Resolutions 765 and 772 condemn the violence and send observers.&quot;, &quot;<strong><span class=\\&quot;key\\&quot;>26 September 1992</span>, Record of Understanding:</strong> Meyer and Ramaphosa. Release prisoners, fence the hostels, ban traditional weapons at rallies. Talks restart three months after Boipatong.&quot;, &quot;<strong><span class=\\&quot;key\\&quot;>1 April 1993</span>:</strong> multi-party talks resume at the World Trade Centre with 26 parties.&quot;, &quot;<strong><span class=\\&quot;key\\&quot;>10 April 1993</span>:</strong> Chris Hani assassinated by Janusz Walus with a gun supplied by Clive Derby-Lewis. Mandela calms the country on television while holding no office.&quot;, &quot;<strong><span class=\\&quot;key\\&quot;>3 June 1993</span>:</strong> the election date is set. <strong><span class=\\&quot;key\\&quot;>25 June 1993</span>:</strong> the AWB drives an armoured vehicle into the World Trade Centre.&quot;]\"><div class=\"car-prompt\" data-car-prompt></div><div class=\"car-frame\"><div class=\"car-count\" data-car-count></div><div class=\"car-body\" data-car-body></div></div><div class=\"car-nav\"><button class=\"btn-small\" data-car-prev>&larr;</button><span class=\"car-hint\" data-car-hint></span><div class=\"car-dots\"><button class=\"car-dot\" data-car-dot></button><button class=\"car-dot\" data-car-dot></button><button class=\"car-dot\" data-car-dot></button><button class=\"car-dot\" data-car-dot></button><button class=\"car-dot\" data-car-dot></button><button class=\"car-dot\" data-car-dot></button><button class=\"car-dot\" data-car-dot></button><button class=\"car-dot\" data-car-dot></button><button class=\"car-dot\" data-car-dot></button></div><button class=\"btn-small\" data-car-next>&rarr;</button></div></div></div>"
   },
   {
     "type": "question",
@@ -460,7 +780,7 @@ const FLOW = [
     "level": "Argue",
     "build": true,
     "part": "But violence repeatedly did what it was meant to do and stopped the talks, so will alone cannot explain the outcome.",
-    "q": "Sentence three. Which one concedes properly without abandoning your line?",
+    "q": "Sum this lesson up in one sentence. Which one admits the damage without giving up?",
     "options": [
       "But violence repeatedly did what it was meant to do and stopped the talks, so will alone cannot explain the outcome",
       "There was a great deal of violence during this period, including Boipatong, Bisho, the killing of Chris Hani and the AWB attack on the World Trade Centre",
@@ -468,12 +788,14 @@ const FLOW = [
       "Although there was violence in this period, it never seriously threatened the negotiations, because the leaders involved were always going to reach a settlement"
     ],
     "correct": 0,
-    "explanation": "{opt0} gives the other side its best shot and still leaves your line standing. Saying will was not enough is not saying will did not matter. {opt1} lists events and takes no position. {opt2} surrenders the essay. {opt3} pretends the collapse never happened, and the marker knows it did. A question that asks to what extent pays for a concession you then answer."
+    "explanation": "{opt0} gives the other side its best shot and still leaves your line standing. Saying will was not enough is not saying will did not matter. {opt1} is a list. {opt2} gives up the argument altogether. {opt3} pretends the talks never broke, and the marker knows they did. How far means you have to concede something."
   },
   {
-    "type": "narrative",
+    "type": "summary",
     "stage": "Transfer",
-    "html": "<div class=\"stage-tag\">Beyond the exam</div><h2>What You Did Just Now</h2><p>You made the strongest possible case against your own position, in your own words, before anyone else could make it for you.</p><p>That is not weakness and it is not fairness for its own sake. It is the only way to find out whether what you believe survives contact with the best objection to it. If it does, you can say so with confidence. If it does not, you have learned something more useful than winning.</p>"
+    "label": "Where you are",
+    "heading": "Your Running Summary",
+    "note": "Three down. This one argues against the other two, because the violence really did stop the talks."
   }
 ];
 
@@ -489,7 +811,7 @@ const KIND = {
 };
 const LEVELS = ["Argue","Evidence","Weigh"];
 
-const state = { idx:0, answers:{}, revealed:{}, order:{} };
+const state = { idx:0, answers:{}, revealed:{}, order:{}, picks:{}, placed:{}, added:{} };
 const questionIds = FLOW.map((f,i)=>f.type==="question"?i:null).filter(i=>i!==null);
 const assessedIds = FLOW.map((f,i)=>(f.type==="question"&&f.level)?i:null).filter(i=>i!==null);
 const buildIds = FLOW.map((f,i)=>f.build?i:null).filter(i=>i!==null);
@@ -503,29 +825,52 @@ const card=document.getElementById("flow-card");
 const backBtn=document.getElementById("back-btn");
 const nextBtn=document.getElementById("next-btn");
 
-document.getElementById("begin-btn").addEventListener("click",()=>{
+const SKIP_TO = 4;
+function beginAt(i){
+  state.idx = i;
   startScreen.classList.add("hidden"); flowScreen.classList.remove("hidden"); topBar.classList.remove("hidden"); render();
+}
+document.getElementById("begin-btn").addEventListener("click",()=>beginAt(0));
+if (SKIP_TO > 0 && SKIP_TO < FLOW.length) {
+  const sb=document.getElementById("skip-btn");
+  sb.classList.remove("hidden");
+  sb.addEventListener("click",()=>beginAt(SKIP_TO));
+}
+backBtn.addEventListener("click",()=>{
+  if(state.idx>0){ state.idx--; render(); }
+  else { flowScreen.classList.add("hidden"); topBar.classList.add("hidden"); startScreen.classList.remove("hidden"); window.scrollTo({top:0,behavior:"smooth"}); }
 });
-backBtn.addEventListener("click",()=>{ if(state.idx>0){state.idx--;render();} });
 nextBtn.addEventListener("click",()=>{ if(state.idx<FLOW.length-1){state.idx++;render();} else {showResults();} });
 document.getElementById("redo-btn").addEventListener("click",()=>location.reload());
+const addedModal=document.getElementById("added-modal");
+document.getElementById("added-close").addEventListener("click",()=>addedModal.classList.add("hidden"));
+addedModal.addEventListener("click",(e)=>{ if(e.target===addedModal) addedModal.classList.add("hidden"); });
 
 function render(){
   const item=FLOW[state.idx];
   document.getElementById("step-count").textContent=`Step ${state.idx+1} of ${FLOW.length}`;
   document.getElementById("fill").style.width=((state.idx+1)/FLOW.length*100)+"%";
-  backBtn.disabled=state.idx===0;
-  if(item.type==="question") renderQuestion(item);
+  backBtn.innerHTML = state.idx===0 ? "&larr; Back to the start" : "&larr; Back";
+  if(item.type==="story") renderStory(item);
+  else if(item.type==="summary") renderSummary(item);
+  else if(item.type==="question") renderQuestion(item);
   else if(item.type==="essay") renderEssay();
   else if(item.type==="source") renderSource(item);
   else renderStatic(item);
-  nextBtn.disabled = item.type==="question" ? !state.revealed[state.idx] : false;
+  if(item.type==="question") nextBtn.disabled=!state.revealed[state.idx];
+  else if(item.type!=="story") nextBtn.disabled=false;
   nextBtn.innerHTML = state.idx===FLOW.length-1 ? "See results &rarr;" : "Continue &rarr;";
   window.scrollTo({top:0,behavior:"smooth"});
 }
 
 function essayParts(uptoIdx){
   return buildIds.filter(i=>i<=uptoIdx && state.revealed[i]).map(i=>FLOW[i].part);
+}
+function renderSummary(item){
+  const parts=buildIds.filter(i=>state.revealed[i]).map(i=>FLOW[i].part);
+  card.innerHTML='<div class="stage-tag">'+item.label+'</div><h2>'+item.heading+'</h2>'
+    +'<div class="essaypanel">'+parts.map(p=>'<p>'+p+'</p>').join("")+'</div>'
+    +(item.note?'<p style="margin-top:1.1rem;color:var(--ink-soft);">'+item.note+'</p>':'');
 }
 function renderEssay(){
   const parts=buildIds.map(i=>FLOW[i].part);
@@ -534,7 +879,217 @@ function renderEssay(){
     <div class="finalessay"><div class="fq">${QUESTION}</div>${parts.map(p=>`<p>${p}</p>`).join("")}</div>
     <p style="margin-top:1.1rem;color:var(--ink-soft);">${ESSAY_SCREEN.outro}</p>`;
 }
-function renderStatic(item){ card.innerHTML=item.html; bindToggles(); }
+function termsBlock(item){
+  if(!item.terms || !item.terms.length) return "";
+  const chips=item.terms.map((x,i)=>`<button class="term-btn" data-term="${i}">${x.t}<span class="plus">+</span></button>`).join("");
+  const defs=item.terms.map((x,i)=>`<div class="term-def" data-termdef="${i}"><strong>${x.t}</strong>${x.d}</div>`).join("");
+  return `<div class="terms"><div class="terms-label">Key terms &middot; tap to open</div><div class="term-row">${chips}</div>${defs}</div>`;
+}
+let lineTimers=[];
+function clearLines(){ lineTimers.forEach(clearTimeout); lineTimers=[]; }
+function renderStory(item){
+  clearLines();
+  let h='<div class="story"><div class="story-marker"><div class="story-num">'+item.marker+'</div>'
+      +'<div class="story-unit">'+item.markerLabel+'</div></div><div class="story-rule"></div>';
+  item.lines.forEach((l,i)=>{
+    const cls = i===item.lines.length-1 ? "story-line last" : "story-line";
+    h+='<div class="'+cls+'" id="sline_'+i+'">'+l+'</div>';
+  });
+  h+='</div>';
+  card.innerHTML=h;
+  nextBtn.disabled=true;
+  const step=650;
+  item.lines.forEach((_,i)=>{
+    lineTimers.push(setTimeout(()=>{
+      const el=document.getElementById("sline_"+i);
+      if(el) el.classList.add("vis");
+    }, 250+(i*step)));
+  });
+  lineTimers.push(setTimeout(()=>{ nextBtn.disabled=false; }, 250+(item.lines.length*step)));
+}
+
+// ---- carousel ----
+function bindCarousels(){
+  const boxes=card.querySelectorAll("[data-car]");
+  if(boxes.length){ nextBtn.disabled=true; }
+  const seen=[];
+  const checkAll=()=>{ if(seen.every(s=>s)) nextBtn.disabled=false; };
+  boxes.forEach((box,bi)=>{
+    const items=JSON.parse(box.getAttribute("data-car"));
+    if(!box.querySelector("[data-car-prompt]")){
+      box.insertAdjacentHTML("afterbegin",'<div class="car-prompt" data-car-prompt></div>');
+    }
+    const viewed=new Array(items.length).fill(false);
+    seen[bi]=false;
+    let i=0;
+    const frame=box.querySelector("[data-car-body]");
+    const count=box.querySelector("[data-car-count]");
+    const dots=box.querySelectorAll("[data-car-dot]");
+    const hint=box.querySelector("[data-car-hint]");
+    const prompt=box.querySelector("[data-car-prompt]");
+    const draw=()=>{
+      frame.innerHTML=items[i];
+      viewed[i]=true;
+      count.textContent=(i+1)+" of "+items.length;
+      dots.forEach((d,j)=>{ d.classList.toggle("on", j===i); d.classList.toggle("read", viewed[j]); });
+      if(viewed.every(v=>v)){ seen[bi]=true; checkAll(); }
+      const left=viewed.filter(v=>!v).length;
+      if(hint) hint.textContent = left ? left+" more to read" : "All read";
+      if(prompt){
+        prompt.innerHTML = left
+          ? '<span class="cp-mark">&rarr;</span><span>Tap through all '+items.length+' cards. Continue unlocks once you have read them.</span>'
+          : '<span class="cp-mark">&#10003;</span><span>All '+items.length+' read. Continue is unlocked.</span>';
+        prompt.classList.toggle("done", left===0);
+      }
+    };
+    box.querySelector("[data-car-prev]").addEventListener("click",()=>{ i=(i-1+items.length)%items.length; draw(); });
+    box.querySelector("[data-car-next]").addEventListener("click",()=>{ i=(i+1)%items.length; draw(); });
+    dots.forEach((d,j)=>d.addEventListener("click",()=>{ i=j; draw(); }));
+    let x0=null;
+    box.addEventListener("touchstart",e=>{ x0=e.touches[0].clientX; },{passive:true});
+    box.addEventListener("touchend",e=>{
+      if(x0===null) return;
+      const dx=e.changedTouches[0].clientX-x0;
+      if(Math.abs(dx)>40){ i=(i+(dx<0?1:items.length-1))%items.length; draw(); }
+      x0=null;
+    },{passive:true});
+    draw();
+  });
+}
+
+// ---- put in order ----
+function renderOrder(item, gi){
+  const revealed=state.revealed[gi];
+  const picked=state.picks[gi]||[];
+  if(!state.order[gi]){
+    const arr=item.items.map((_,i)=>i);
+    for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); const t=arr[i]; arr[i]=arr[j]; arr[j]=t; }
+    state.order[gi]=arr;
+  }
+  const tag=DIFF[item.level];
+  let chosen="";
+  picked.forEach((orig,pos)=>{
+    let cls="ord-slot filled";
+    if(revealed) cls+= (orig===pos ? " right" : " wrong");
+    chosen+='<button class="'+cls+'" data-drop="'+pos+'" '+(revealed?"disabled":"")+'>'
+      +'<span class="ord-rank">'+(pos+1)+'</span><span class="ord-txt">'+item.items[orig]+'</span>'
+      +(revealed?"":'<span class="ord-x">&#10007;</span>')+'</button>';
+  });
+  let pool="";
+  state.order[gi].forEach(orig=>{
+    if(picked.indexOf(orig)!==-1) return;
+    pool+='<button class="ord-chip" data-pick="'+orig+'" '+(revealed?"disabled":"")+'>'+item.items[orig]+'</button>';
+  });
+  const all=picked.length===item.items.length;
+  card.innerHTML='<div class="stage-tag"><span class="chip '+tag.cls+'">'+tag.label+'</span></div>'
+    +'<div class="q-text">'+item.q+'</div>'
+    +'<div class="sort-prompt">Tap the events in order, earliest first. Tap one you have placed to take it back.</div>'
+    +(chosen?'<div class="ord-strip">'+chosen+'</div>':'')
+    +(pool?'<div class="ord-pool">'+pool+'</div>':'')
+    +'<div class="ord-actions"><button class="btn-small" id="ord-check" '+((!all||revealed)?"disabled":"")+'>Check my order</button></div>'
+    +(revealed?'<div class="explanation"><div class="expl-label">Why</div><div class="expl-text">'+item.explanation+'</div></div>':"");
+  if(!revealed){
+    card.querySelectorAll("[data-pick]").forEach(b=>b.addEventListener("click",()=>{
+      state.picks[gi]=(state.picks[gi]||[]).concat([parseInt(b.dataset.pick)]); render();
+    }));
+    card.querySelectorAll("[data-drop]").forEach(b=>b.addEventListener("click",()=>{
+      const pos=parseInt(b.dataset.drop);
+      const arr=(state.picks[gi]||[]).slice(); arr.splice(pos,1);
+      state.picks[gi]=arr; render();
+    }));
+    const ch=document.getElementById("ord-check");
+    if(ch) ch.addEventListener("click",()=>{
+      const pk=state.picks[gi]||[];
+      state.answers[gi]= pk.every((v,i)=>v===i) ? item.correct : -1;
+      state.revealed[gi]=true; render();
+    });
+  }
+}
+
+// ---- sort into two groups ----
+function renderSort(item, gi){
+  const revealed=state.revealed[gi];
+  const placed=state.placed[gi]||{};
+  const tag=DIFF[item.level];
+  const cols=item.groups.map((g,ci)=>{
+    let tags="";
+    item.items.forEach((it,ii)=>{
+      if(placed[ii]!==ci) return;
+      let cls="sort-tag";
+      if(revealed) cls+= (item.answers[ii]===ci ? " right" : " wrong");
+      tags+='<button class="'+cls+'" data-unplace="'+ii+'" '+(revealed?"disabled":"")+'>'+it+'</button>';
+    });
+    return '<div class="sort-col"><h4>'+g+'</h4>'+tags+'</div>';
+  }).join("");
+  let pool="";
+  item.items.forEach((it,ii)=>{
+    if(placed[ii]!==undefined) return;
+    pool+='<div class="ord-chip" style="cursor:default;">'+it
+      +'<div style="display:flex;gap:0.4rem;margin-top:0.5rem;">'
+      + item.groups.map((g,ci)=>'<button class="btn-small" data-place="'+ii+'-'+ci+'">'+g+'</button>').join("")
+      +'</div></div>';
+  });
+  const done=Object.keys(placed).length===item.items.length;
+  card.innerHTML='<div class="stage-tag"><span class="chip '+tag.cls+'">'+tag.label+'</span></div>'
+    +'<div class="q-text">'+resolveNone(item.q)+'</div>'
+    +'<div class="sort-prompt">Put each one in a column. Tap a card in a column to take it back.</div>'
+    +'<div class="sort-cols">'+cols+'</div>'
+    +(pool?'<div class="ord-pool">'+pool+'</div>':"")
+    +'<div class="ord-actions"><button class="btn-small" id="sort-check" '+((!done||revealed)?"disabled":"")+'>Check</button></div>'
+    +(revealed?'<div class="explanation"><div class="expl-label">Why</div><div class="expl-text">'+item.explanation+'</div></div>':"");
+  if(!revealed){
+    card.querySelectorAll("[data-place]").forEach(b=>b.addEventListener("click",()=>{
+      const [ii,ci]=b.dataset.place.split("-").map(Number);
+      state.placed[gi]=Object.assign({},state.placed[gi]||{},{[ii]:ci}); render();
+    }));
+    card.querySelectorAll("[data-unplace]").forEach(b=>b.addEventListener("click",()=>{
+      const o=Object.assign({},state.placed[gi]||{}); delete o[parseInt(b.dataset.unplace)];
+      state.placed[gi]=o; render();
+    }));
+    const ch=document.getElementById("sort-check");
+    if(ch) ch.addEventListener("click",()=>{
+      const p=state.placed[gi]||{};
+      const right=item.items.every((_,ii)=>p[ii]===item.answers[ii]);
+      state.answers[gi]= right ? item.correct : -1;
+      state.revealed[gi]=true; render();
+    });
+  }
+}
+function resolveNone(s){ return String(s); }
+
+function showAdded(text){
+  const m=document.getElementById("added-modal");
+  document.getElementById("added-text").textContent=text;
+  m.classList.remove("hidden");
+}
+function bindMemory(){
+  card.querySelectorAll(".memory").forEach(box=>{
+    const label=box.querySelector(".memory-label");
+    if(!label || label.classList.contains("memory-toggle")) return;
+    const body=Array.prototype.slice.call(box.children).filter(el=>el!==label);
+    body.forEach(el=>{ el.style.display="none"; });
+    label.classList.add("memory-toggle");
+    label.insertAdjacentHTML("beforeend",'<span class="mplus">+</span>');
+    label.addEventListener("click",()=>{
+      const opening = body.length ? body[0].style.display==="none" : false;
+      body.forEach(el=>{ el.style.display = opening ? "" : "none"; });
+      box.classList.toggle("open", opening);
+      label.querySelector(".mplus").textContent = opening ? "\u2212" : "+";
+    });
+  });
+}
+function bindTerms(){
+  card.querySelectorAll("[data-term]").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      const i=btn.dataset.term;
+      const def=card.querySelector(`[data-termdef="${i}"]`);
+      const open=def.classList.toggle("open");
+      btn.classList.toggle("open",open);
+      btn.querySelector(".plus").textContent = open ? "\u2212" : "+";
+    });
+  });
+}
+function renderStatic(item){ card.innerHTML=item.html+termsBlock(item); bindToggles(); bindTerms(); bindMemory(); bindCarousels(); }
 function renderSource(item){
   let html=item.html;
   if(item.source){
@@ -543,23 +1098,28 @@ function renderSource(item){
     const cl = s.clause ? `<span class="clause">${s.clause}</span>` : "";
     html+=`<div class="source">${cl}<div class="source-attr">${s.attr}</div>
       <div class="source-body">${s.body}</div>${ev}
-      <div><button class="toggle-btn" data-toggle>What does this actually mean?</button></div>
+      <div><button class="toggle-btn" data-toggle>What this actually means</button></div>
       <div class="toggle-body" data-toggle-body>${s.toggle}</div></div>`;
   }
-  card.innerHTML=html;
+  card.innerHTML=html+termsBlock(item);
   bindToggles();
+  bindTerms();
+  bindMemory();
+  bindCarousels();
 }
 function bindToggles(){
   card.querySelectorAll("[data-toggle]").forEach(btn=>{
     btn.addEventListener("click",()=>{
       const body=btn.closest(".source").querySelector("[data-toggle-body]");
       body.classList.toggle("open");
-      btn.textContent=body.classList.contains("open")?"Hide":"What does this actually mean?";
+      btn.textContent=body.classList.contains("open")?"Hide":"What this actually means";
     });
   });
 }
 function renderQuestion(item){
   const gi=state.idx;
+  if(item.mode==="order"){ renderOrder(item, gi); return; }
+  if(item.mode==="sort"){ renderSort(item, gi); return; }
   if(!state.order[gi]){
     const arr=item.options.map((_,i)=>i);
     for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); const t=arr[i]; arr[i]=arr[j]; arr[j]=t; }
@@ -588,9 +1148,9 @@ function renderQuestion(item){
   });
   const explLabel = item.level ? "Why" : "What that shows";
   let panel="";
-  if(revealed && item.build){
-    panel=`<div class="essaypanel"><div class="essaypanel-label"><span class="tick">&#10003;</span> Added to your essay</div>`
-      + essayParts(gi).map(p=>`<p>${p}</p>`).join("") + `</div>`;
+  if(revealed && item.build && !state.added[gi]){
+    state.added[gi]=true;
+    setTimeout(()=>showAdded(item.part), 350);
   }
   card.innerHTML=`<div class="stage-tag"><span class="chip ${tag.cls}">${tag.label}</span></div>
     <div class="q-text">${resolve(item.q)}</div><div class="options">${optsHtml}</div>
@@ -624,13 +1184,12 @@ function showResults(){
       <div class="bd-score">${got}/${ids.length}</div></div>`;
   });
   window.scrollTo({top:0,behavior:"smooth"});
+  const dm=document.getElementById("done-modal");
+  document.getElementById("finish-btn").addEventListener("click",()=>dm.classList.remove("hidden"));
+  document.getElementById("done-close").addEventListener("click",()=>dm.classList.add("hidden"));
+  dm.addEventListener("click",(e)=>{ if(e.target===dm) dm.classList.add("hidden"); });
 }
 
-const themeBtn=document.getElementById("theme-btn");
-themeBtn.addEventListener("click",()=>{
-  const bright=document.body.classList.toggle("bright");
-  themeBtn.textContent = bright ? "Low light" : "Bright light";
-});
 </script>
 </body>
 </html>
