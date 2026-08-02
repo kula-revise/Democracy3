@@ -3,7 +3,7 @@
   Kula Revise lesson engine, sunset clause skin.
 
   Mechanics never change per series. Copy this file, repaint the variables in
-  :root and body.bright, and leave everything else alone.
+  :root and body.alt, and leave everything else alone.
 
   Step types, all driven from the content JSON:
     story      animated hook: marker, place, lines that fade up one at a time
@@ -55,28 +55,30 @@
       --sans: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       --serif: Georgia, 'Times New Roman', serif;
     }
-  /* Bright light inversion, kept but not exposed. Add class "bright" to body to switch. */
-    body.bright {
-      --paper: #F1EEE7;
-      --sheet: #FAF8F3;
-      --white: #FFFDF8;
+  /* Alternate mode. The series identity always lives in :root. This is its inversion. */
+    body.alt {
+      /* Cool slate. The navy ground inverted into blue paper, not bone,
+         so it cannot be mistaken for the Black Power light mode. */
+      --paper: #E4EAF1;
+      --sheet: #F2F6FA;
+      --white: #FBFDFF;
       --ink: #14243E;
-      --ink-soft: #5A6779;
+      --ink-soft: #56657C;
       --flame: #B4501B;
-      --on-flame: #FFFDF8;
-      --leaf: #2E7D5B;
-      --on-leaf: #FFFDF8;
-      --hair: rgba(20,36,62,0.18);
-      --rail: rgba(20,36,62,0.12);
-      --tint: rgba(46,125,91,0.07);
-      --tint-rule: rgba(46,125,91,0.35);
-      --slot-bg: rgba(255,255,255,0.5);
-      --chipA-bg: #F5E2D3; --chipA-fg: #8A3A0C;
-      --chipB-bg: #DCE5F0; --chipB-fg: #33415A;
-      --chipN-bg: #E5E3DC; --chipN-fg: #4E5666;
-      --ev3-bg: #DCEDE3; --ev3-fg: #236043;
-      --ok-bg: rgba(46,125,91,0.12);
-      --bad-bg: rgba(20,36,62,0.06); --bad-border: #94A0B0;
+      --on-flame: #FBFDFF;
+      --leaf: #267051;
+      --on-leaf: #FBFDFF;
+      --hair: rgba(20,36,62,0.20);
+      --rail: rgba(20,36,62,0.13);
+      --tint: rgba(38,112,81,0.08);
+      --tint-rule: rgba(38,112,81,0.38);
+      --slot-bg: rgba(255,255,255,0.62);
+      --chipA-bg: #F6DFCE; --chipA-fg: #8A3A0C;
+      --chipB-bg: #D3DFEE; --chipB-fg: #2C3B55;
+      --chipN-bg: #DBE2EA; --chipN-fg: #4A5768;
+      --ev3-bg: #D6E8DD; --ev3-fg: #1E5A3E;
+      --ok-bg: rgba(38,112,81,0.13);
+      --bad-bg: rgba(20,36,62,0.07); --bad-border: #8C9AAC;
       --btn-hover: #96410F;
       --start-hover: #0B182B;
     }
@@ -318,9 +320,33 @@
   .modal h3 { font-family: var(--sans); font-size: 1.2rem; font-weight: 600; margin-bottom: 0.7rem; }
   .modal p { font-size: 1rem; line-height: 1.7; color: var(--ink); margin-bottom: 1.3rem; }
 
+  
+    /* Mode toggle. Bottom right, thumb reachable, under any modal. */
+    .mode-toggle {
+      position: fixed; bottom: 0.9rem; right: 0.9rem; z-index: 40;
+      display: flex; align-items: center; gap: 0.4rem;
+      font-family: var(--sans); font-size: 0.66rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.55rem 0.75rem; min-height: 2.4rem;
+      background: var(--sheet); color: var(--ink-soft);
+      border: 1px solid var(--hair); cursor: pointer;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.22);
+    }
+    .mode-toggle:hover { color: var(--ink); border-color: var(--flame); }
+    .mode-toggle:focus-visible { outline: 2px solid var(--flame); outline-offset: 2px; }
+    .mode-toggle svg { width: 0.9rem; height: 0.9rem; fill: none; stroke: currentColor; stroke-width: 1.6; }
+    @media print { .mode-toggle { display: none; } }
   </style>
 </head>
 <body>
+
+<script>
+try{ if(localStorage.getItem("kula-mode")==="alt"){ document.body.classList.add("alt"); } }catch(e){}
+</script>
+<button class="mode-toggle" id="mode-toggle" type="button" aria-pressed="false" data-native="dark">
+  <svg viewBox="0 0 24 24" aria-hidden="true" id="mode-icon"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/></svg>
+  <span id="mode-label">Light Mode</span>
+</button>
 <div class="container">
 
   <div class="top-bar hidden" id="top-bar">
@@ -367,7 +393,7 @@
     <div class="modal">
       <div class="modal-label">Lesson complete</div>
       <h3>The Year It Should Have Ended</h3>
-      <p>Click on the arrow above to continue to the next lesson.</p>
+      <p>Tap Done to continue to the next lesson.</p>
       <button class="btn-primary" id="done-close">Got it</button>
     </div>
   </div>
@@ -1205,6 +1231,29 @@ function showResults(){
   dm.addEventListener("click",(e)=>{ if(e.target===dm) dm.classList.add("hidden"); });
 }
 
+
+(function(){
+  var b=document.getElementById("mode-toggle"), lab=document.getElementById("mode-label"), ic=document.getElementById("mode-icon");
+  if(!b) return;
+  var SUN='<circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/>';
+  var MOON='<path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/>';
+  var native=b.getAttribute("data-native");
+  function paint(){
+    var onAlt=document.body.classList.contains("alt");
+    var showing = onAlt ? (native==="dark" ? "light" : "dark") : native;
+    var offering = showing==="dark" ? "light" : "dark";
+    lab.textContent = offering==="light" ? "Light Mode" : "Dark Mode";
+    ic.innerHTML = offering==="light" ? SUN : MOON;
+    b.setAttribute("aria-pressed", onAlt ? "true" : "false");
+    b.setAttribute("aria-label", "Switch to " + (offering==="light" ? "light" : "dark") + " mode");
+  }
+  b.addEventListener("click",function(){
+    var onAlt=document.body.classList.toggle("alt");
+    try{ localStorage.setItem("kula-mode", onAlt ? "alt" : "native"); }catch(e){}
+    paint();
+  });
+  paint();
+})();
 </script>
 </body>
 </html>
